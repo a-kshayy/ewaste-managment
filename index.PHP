@@ -9,15 +9,13 @@
 <body>
     <h1>Ewaste-portal</h1>
     <?php
-    $name = "AKSHAY";
-    echo "<p>WELCOME, $name! Today is " . date("F j , y") . "</p>";
-    ?>
-    <button onclick="sayHi()">CLICK ME</button>
-    <script>
-    function sayHi()
-    {
-        alert("Hello frome javascript!");
-    }
-        </script>
+        require "config/db.php";
+        
+        $stmt = $pdo->query("SELECT * FROM categories");
+        $categories = $stmt->fetchall();
+        foreach($categories as $cat){
+          echo "<p><strong>" . $cat['name'] . "</strong> - " .$cat['description'] . "</p>";
+          }
+         ?>
 </body>
 </html>

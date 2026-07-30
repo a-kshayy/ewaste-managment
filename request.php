@@ -30,6 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <?php require "navbar.php"; ?>
   <h1>Schedule a Pickup</h1>
 
   <?php if ($success): ?>

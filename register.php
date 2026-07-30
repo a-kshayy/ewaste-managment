@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+     <?php  require "navbar.php";?>
     <h1> Create an account </h1>
     <?php 
         require "config/db.php";

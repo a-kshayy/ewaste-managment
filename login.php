@@ -1,6 +1,7 @@
 <?php
 session_start();
 require "config/db.php";
+
 $error= "";
 
 if($_SERVER["REQUEST_METHOD"]=="POST")
@@ -35,6 +36,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <?php  require "navbar.php";?>
     <h1> Login </h1>
     <?php if($error): ?>
         <p style="color :red;"><?php echo $error; ?></p>

@@ -21,6 +21,66 @@ body {
     line-height: 1.6;
 }
 
+body.auth-page {
+    position: relative;
+    overflow-x: hidden;
+}
+
+.auth-video {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.auth-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(8, 22, 18, 0.58);
+    z-index: 0;
+}
+
+.auth-content {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+}
+
+.auth-card {
+    max-width: 440px;
+    margin: 40px auto;
+    padding: 32px;
+    background: rgba(247, 245, 239, 0.95);
+    border-radius: 6px;
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.18);
+    border-top: 3px solid var(--copper);
+}
+
+.auth-card h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.auth-card form {
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+}
+
+.auth-card p {
+    text-align: center;
+    margin-top: 16px;
+}
+
+.auth-card a {
+    color: var(--moss);
+    font-weight: 600;
+}
+
 h1, h2, h3 {
     font-family: 'Fraunces', serif;
     color: var(--ink-green);
@@ -126,10 +186,20 @@ nav span {
     text-decoration: none;
     border-radius: 2px;
     letter-spacing: 0.02em;
-    transition: background 0.15s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
+    box-shadow: 0 6px 16px rgba(27, 58, 47, 0.12);
 }
 
-.btn:hover { background: var(--copper-light); }
+.btn:hover, .btn:focus-visible {
+    background: var(--copper-light);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(27, 58, 47, 0.18);
+}
+
+.btn:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 10px rgba(27, 58, 47, 0.16);
+}
 
 /* ===== Category cards ===== */
 .card-grid {
@@ -204,10 +274,20 @@ button, input[type="submit"] {
     letter-spacing: 0.02em;
     cursor: pointer;
     border-radius: 2px;
-    transition: background 0.15s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
+    box-shadow: 0 6px 16px rgba(27, 58, 47, 0.12);
 }
 
-button:hover, input[type="submit"]:hover { background: var(--moss-dark); }
+button:hover, button:focus-visible, input[type="submit"]:hover, input[type="submit"]:focus-visible {
+    background: var(--moss-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(27, 58, 47, 0.18);
+}
+
+button:active, input[type="submit"]:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 10px rgba(27, 58, 47, 0.16);
+}
 
 /* ===== Tables ===== */
 table {

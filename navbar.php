@@ -6,7 +6,7 @@ if (session_status() === PHP_SESSION_NONE) {
 <nav>
   <a href="index.php" style="display:flex; align-items:center;">
     <img src="assets/logo.png" alt="EcoTrace" align="right" style="height: 50px; width:auto;">
-    <
+  
 </a>
   <a href="index.php">Home</a>
   <a href="request.php">Request Pickup</a>

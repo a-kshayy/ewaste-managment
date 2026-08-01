@@ -16,7 +16,7 @@
     <?php  require "navbar.php";?>
     <section class="hero">
       <video class="hero-video" autoplay muted loop playsinline>
-        <source src="https://www.w3schools.com/howto/rain.mp4" type="video/mp4">
+        <source src="assets/flowing.mp4" type="video/mp4">
       </video>
       <div class="hero-content">
         <h1>Give Your Old Electronics a Second Life</h1>

@@ -21,33 +21,41 @@ $requests = $stmt->fetchAll();
 <!DOCTYPE html>
 <html>
 <head>
-  <title>My Requests</title>
-  <link rel="stylesheet" href="style.css">
+    <title>My Requests</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <?php require "navbar.php"; ?>
-  <h1>My Pickup Requests</h1>
-  <p><a href="request.php">+ New Request</a></p>
+    <?php require "navbar.php"; ?>
+    <body class="app-bg">
 
-  <?php if (empty($requests)): ?>
-    <p>You haven't made any requests yet.</p>
-  <?php else: ?>
-    <table border="1" cellpadding="8">
-      <tr>
-        <th>Category</th>
-        <th>Description</th>
-        <th>Pickup Date</th>
-        <th>Status</th>
-      </tr>
-      <?php foreach ($requests as $r): ?>
-        <tr>
-          <td><?= $r['category_name'] ?></td>
-          <td><?= $r['device_description'] ?></td>
-          <td><?= $r['preferred_date'] ?></td>
-          <td><?= $r['status'] ?></td>
-        </tr>
-      <?php endforeach; ?>
-    </table>
-  <?php endif; ?>
+    <div class="page-header">
+        <h1>My Pickup Requests</h1>
+    </div>
+    <div class="page-header-links">
+        <a href="request.php">+ New Request</a>
+    </div>
+
+    <?php if (empty($requests)): ?>
+        <p class="empty-state">You haven't made any requests yet.</p>
+    <?php else: ?>
+        <div class="table-wrap">
+            <table>
+                <tr>
+                    <th>Category</th>
+                    <th>Description</th>
+                    <th>Pickup Date</th>
+                    <th>Status</th>
+                </tr>
+                <?php foreach ($requests as $r): ?>
+                    <tr>
+                        <td><?= htmlspecialchars($r['category_name']) ?></td>
+                        <td><?= htmlspecialchars($r['device_description']) ?></td>
+                        <td><?= htmlspecialchars($r['preferred_date']) ?></td>
+                        <td><span class="status-pill status-<?= htmlspecialchars($r['status']) ?>"><?= htmlspecialchars($r['status']) ?></span></td>
+                    </tr>
+                <?php endforeach; ?>
+            </table>
+        </div>
+    <?php endif; ?>
 </body>
 </html>

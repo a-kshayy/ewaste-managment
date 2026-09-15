@@ -26,35 +26,39 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Request Pickup</title>
-  <link rel="stylesheet" href="style.css">
+    <title>Request Pickup</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <?php require "navbar.php"; ?>
-  <h1>Schedule a Pickup</h1>
+    <?php require "navbar.php"; ?>
+    <body class="app-bg">
+    <div class="page-header">
+        <h1>Schedule a Pickup</h1>
+        <p>Tell us what you'd like collected and when.</p>
+    </div>
 
-  <?php if ($success): ?>
-    <p style="color:green;">Request submitted!</p>
-  <?php endif; ?>
+    <?php if ($success): ?>
+        <p class="success-msg">Request submitted!</p>
+    <?php endif; ?>
 
-  <form method="post">
-    <label>Category:</label><br>
-    <select name="category_id" required>
-      <?php foreach ($categories as $cat): ?>
-        <option value="<?= $cat['id'] ?>"><?= $cat['name'] ?></option>
-      <?php endforeach; ?>
-    </select><br><br>
+    <form method="post">
+        <label>Category:</label>
+        <select name="category_id" required>
+            <?php foreach ($categories as $cat): ?>
+                <option value="<?= $cat['id'] ?>"><?= htmlspecialchars($cat['name']) ?></option>
+            <?php endforeach; ?>
+        </select>
 
-    <label>Describe your item(s):</label><br>
-    <textarea name="description" required></textarea><br><br>
+        <label>Describe your item(s):</label>
+        <textarea name="description" required></textarea>
 
-    <label>Pickup address:</label><br>
-    <input type="text" name="address" required><br><br>
+        <label>Pickup address:</label>
+        <input type="text" name="address" required>
 
-    <label>Preferred date:</label><br>
-    <input type="date" name="preferred_date" required><br><br>
+        <label>Preferred date:</label>
+        <input type="date" name="preferred_date" required>
 
-    <button type="submit">Submit Request</button>
-  </form>
+        <button type="submit">Submit Request</button>
+    </form>
 </body>
 </html>

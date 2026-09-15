@@ -13,29 +13,30 @@
     require "config/db.php";
     $categories = $pdo->query("SELECT * FROM categories")->fetchAll();
     ?>
-    <?php  require "navbar.php";?>
-    <section class="hero">
-      <video class="hero-video" autoplay muted loop playsinline>
-        <source src="assets/flowing.mp4" type="video/mp4">
-      </video>
-      <div class="hero-content">
-        <h1>Give Your Old Electronics a Second Life</h1>
-        <p>Schedule a free e-waste pickup and recycle responsibly.</p>
-        <a href="request.php" class="btn">Schedule a Pickup</a>
-      </div>
-    </section>
+    <?php require "navbar.php"; ?>
 
-  <h2 class="section-title">What We Accept</h2>
+    <div class="hero-new">
+        <div class="hero-new-text">
+            <h1>Give Your Old Electronics a Second Life</h1>
+            <p>Schedule a free e-waste pickup and recycle responsibly — simple, trusted, and good for the planet.</p>
+            <div class="hero-btn-row">
+                <a href="request.php" class="btn-filled">Schedule a Pickup</a>
+                <a href="#categories" class="btn-outline">What We Accept</a>
+            </div>
+        </div>
+    </div>
 
-  <div class="card-grid">
-    <?php if (!isset($categories)) { $categories = []; } ?>
-    <?php foreach ($categories as $cat): ?>
-      <div class="card">
-        <h3><?= $cat['name'] ?></h3>
-        <p><?= $cat['description'] ?></p>
-        <span class="tag tag-<?= $cat['hazard_level'] ?>"><?= $cat['hazard_level'] ?> hazard</span>
-      </div>
-    <?php endforeach; ?>
-  </div>
+    <h2 class="section-title" id="categories" style="text-align:center; margin-top:50px;">What We Accept</h2>
+
+    <div class="card-grid">
+        <?php if (!isset($categories)) { $categories = []; } ?>
+        <?php foreach ($categories as $cat): ?>
+            <div class="card">
+                <h3><?= htmlspecialchars($cat['name']) ?></h3>
+                <p><?= htmlspecialchars($cat['description']) ?></p>
+                <span class="tag tag-<?= htmlspecialchars($cat['hazard_level']) ?>"><?= htmlspecialchars($cat['hazard_level']) ?> hazard</span>
+            </div>
+        <?php endforeach; ?>
+    </div>
 </body>
 </html>

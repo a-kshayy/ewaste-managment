@@ -1,0 +1,3 @@
+# User supplied pickup photos are local data and should never be committed.
+/uploads/*
+!/uploads/.htaccess
